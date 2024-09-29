@@ -3,10 +3,10 @@ pipeline {
 
     environment {
         // Use the IDs of the stored AWS credentials
-        AWS_ACCESS_KEY_ID = credentials('ChandanaAWS') // Replace with your actual credentials ID
-        AWS_SECRET_ACCESS_KEY = credentials('ChandanaAWS') // Replace with your actual credentials ID
-        S3_BUCKET = 'learn-git-jenkins-s3' // Your S3 bucket name
-        FILE_TO_UPLOAD = 'profile.html' // File to upload
+        AWS_ACCESS_KEY_ID = credentials('ChandanaAWS')
+        AWS_SECRET_ACCESS_KEY = credentials('ChandanaAWS') 
+        S3_BUCKET = 'learn-git-jenkins-s3' 
+        FILE_TO_UPLOAD = 'profile.html'
     }
 
     stages {
