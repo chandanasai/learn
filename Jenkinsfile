@@ -3,7 +3,7 @@ pipeline {
 
     environment {
         // Define the S3 bucket name and the file to upload
-        S3_BUCKET = 'learn-git-jenkins-s3'  // replace with your S3 bucket name
+        S3_BUCKET = 'learn-git-jenkins-s3-1'  // replace with your S3 bucket name
         FILE_TO_UPLOAD = 'profile.html'  // replace with the path to the file in your repo
     }
 
