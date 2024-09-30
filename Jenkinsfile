@@ -10,8 +10,8 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                // Checkout from GitHub using stored credentials
-                git url: 'https://github.com/chandanasai/learn.git', credentialsId: 'ChandanaGit'
+                // Checkout from GitHub using the 'main' branch and stored credentials
+                git branch: 'main', url: 'https://github.com/chandanasai/learn.git', credentialsId: 'ChandanaGit'
             }
         }
 
