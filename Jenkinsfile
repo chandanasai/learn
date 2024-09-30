@@ -24,7 +24,7 @@ pipeline {
                 ]]) {
                     // Use AWS CLI to upload the file to S3
                     bat """
-                    aws s3 cp ${FILE_TO_UPLOAD} s3://${S3_BUCKET}/
+                    aws s3 cp ${FILE_TO_UPLOAD} s3://${S3_BUCKET}/ --region us-east-1
                     """
                 }
             }
