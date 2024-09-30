@@ -2,9 +2,7 @@ pipeline {
     agent any
 
     environment {
-        // Define environment variables for AWS
-        AWS_ACCESS_KEY_ID = credentials('ChandanaAWS')  // replace with your AWS access key credentials ID
-        AWS_SECRET_ACCESS_KEY = credentials('ChandanaAWS')  // replace with your AWS secret key credentials ID
+        // Define the S3 bucket name and the file to upload
         S3_BUCKET = 'learn-git-jenkins-s3'  // replace with your S3 bucket name
         FILE_TO_UPLOAD = 'profile.html'  // replace with the path to the file in your repo
     }
@@ -19,9 +17,13 @@ pipeline {
 
         stage('Upload to S3') {
             steps {
-                script {
-                    // Use AWS CLI to upload the file to S3 on a Windows machine
-                    bat """
+                // Use the AWS credentials stored in Jenkins credentials with ID 'ChandanaAWS'
+                withCredentials([[
+                    $class: 'AmazonWebServicesCredentialsBinding', 
+                    credentialsId: 'ChandanaAWS'
+                ]]) {
+                    // Use AWS CLI to upload the file to S3
+                    sh """
                     aws s3 cp ${FILE_TO_UPLOAD} s3://${S3_BUCKET}/
                     """
                 }
